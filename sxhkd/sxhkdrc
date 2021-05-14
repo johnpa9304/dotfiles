@@ -125,5 +125,17 @@ super + {Left,Down,Up,Right}
 # Take screenshot
 Print
 	gnome-screenshot
-shift + Print
-	gnome-screenshot -e -c
+
+#Extras
+XF86MonBrightnessDown
+	xbacklight -dec 15
+XF86MonBrightnessUp
+	xbacklight -inc 15
+XF86AudioMute
+	amixer sset Master toggle; pkill -RTMIN+10 dwmblocks
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5%{+,-}; pkill -RTMIN+10 dwmblocks
+XF86Audio{Next,Prev}
+	mpc {next,prev}
+XF86Audio{Pause,Play,Stop}
+	mpc {pause,play,stop}

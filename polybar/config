@@ -61,7 +61,7 @@ line-color = #f00
 border-size = 4
 border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -72,15 +72,15 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 font-2 = siji:pixelsize=13;1
 font-3 = fontAwesome:pixelsize=14;1
 
-modules-left = bspwm i3 app archivos term web telegram code
+modules-left = powermenu bspwm i3 app int-tools archivos term web telegram code
 modules-center = mpd spotify
-modules-right = filesystem backlight pulseaudio xkeyboard memory cpu wlan int-tools eth battery temperature date powermenu
+modules-right = filesystem backlight pulseaudio xkeyboard memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -120,7 +120,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% %{F#0a81f5}Used%{F-}: %used%  %{F#0a81f5}Free%{F-}: %free%  %{F#0a81f5}Total%{F-}: %total%
+label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %used% / %total% %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -469,35 +469,11 @@ enable-scroll = true
 ;   <label> (default)
 ;   <ramp>
 ;   <bar>
-format = <label> <bar>
+format = <label>
 
 ; Available tokens:
 ;   %percentage% (default)
 label =  %percentage%%
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-; Only applies if <ramp> is used
-;ramp-0 = 🌕
-;ramp-1 = 🌔
-;ramp-2 = 🌓
-;ramp-3 = 🌒
-;ramp-4 = 🌑
-
-; Only applies if <bar> is used
-;bar-width = 10
-;bar-indicator = |
-;bar-fill = ─
-;bar-empty = ─
 
 [module/term]
 type = custom/text
@@ -545,8 +521,7 @@ click-right =
 
 [module/int-tools]
 type = custom/text
-content = 
-content-foreground = ${colors.foreground-alt}
+content = 
 click-left = tilix -e nmtui &
 click-right = 
 
